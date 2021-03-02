@@ -1,0 +1,54 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 100%;
+  max-width: 365px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary-indigo;
+}
+
+img {
+  cursor: pointer;
+}
+
+emoji-mart {
+  margin-bottom: 16px;
+}
+
+textarea {
+  min-height: 95px;
+  margin: 16px 0;
+  padding: 16px;
+  font-size: 14px;
+  outline: none;
+  border-radius: 4px;
+  resize: vertical;
+  border: 1px solid $system-grays-silver-light;
+  color: $primary-deep-blue;
+
+  &::placeholder {
+    color: $system-grays-steel;
+  }
+}
+
+button {
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 16px;
+  color: $system-grays-ice;
+  background-color: $primary-deep-blue;
+  transition: all 0.1s ease;
+
+  &:hover {
+    background-color: $primary-indigo;
+  }
+}

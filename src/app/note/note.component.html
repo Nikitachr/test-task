@@ -1,0 +1,9 @@
+<div class="w__100per d__flex d__flex--items-center">
+  <img class="calendar" src="assets/icons/calendar.svg" alt="calendar">
+  <span>{{ note.date | date:'shortTime' }} | {{ note.date | date:'mediumDate' }}</span>
+  <img class="options" src="assets/icons/options.svg" alt="options">
+</div>
+
+<p class="w__100per">
+  {{ note.text }}
+</p>

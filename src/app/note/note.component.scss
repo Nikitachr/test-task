@@ -1,0 +1,31 @@
+@import "src/assets/scss/variables";
+
+:host {
+  padding: 14px;
+  background-color: $system-grays-silver-light;
+  border-radius: 10px;
+  width: 100%;
+}
+
+span {
+  font-size: 10px;
+  font-weight: 400;
+  color: $primary-indigo;
+}
+
+.calendar {
+  margin-right: 5px;
+}
+
+.options {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 8px;
+  color: $system-grays-blue-gray;
+  font-size: 10px;
+  font-weight: 400;
+  word-break: break-all;
+}
