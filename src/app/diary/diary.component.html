@@ -3,14 +3,15 @@
   <img src="assets/icons/arrow.svg" alt="arrow">
 </div>
 
-<textarea #textarea class="w__100per"
+<textarea class="w__100per"
+          #textarea
           [(ngModel)]="value" placeholder="Write something">
 </textarea>
 
 <emoji-mart class="d__flex d__flex--justify-center"
             *ngIf="isEmoji"
-            (emojiClick)="onAddEmoji($event)"
-></emoji-mart>
+            (emojiClick)="onAddEmoji($event)">
+</emoji-mart>
 
 <div class="d__flex d__flex--items-center d__flex--justify-between">
   <img *ngIf="!isEmoji" (click)="toggleEmojis()" src="assets/icons/smile.svg" alt="smile">
