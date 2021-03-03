@@ -3,21 +3,18 @@
   <img src="assets/icons/arrow.svg" alt="arrow">
 </div>
 
-<textarea #textarea class="w__100per" (blur)="$event.preventDefault(); $event.stopImmediatePropagation()"
-          [(ngModel)]="value" placeholder="Write something"></textarea>
+<textarea #textarea class="w__100per"
+          [(ngModel)]="value" placeholder="Write something">
+</textarea>
 
-<emoji-mart (click)="$event.preventDefault()" class="d__flex d__flex--justify-center"
+<emoji-mart class="d__flex d__flex--justify-center"
             *ngIf="isEmoji"
             (emojiClick)="onAddEmoji($event)"
 ></emoji-mart>
 
-
 <div class="d__flex d__flex--items-center d__flex--justify-between">
-
-  <img *ngIf="!isEmoji" (click)="showEmojis()" src="assets/icons/smile.svg" alt="smile">
-  <img *ngIf="isEmoji" (click)="closeEmojis()" src="assets/icons/keyboard.png" alt="keyboard">
-
+  <img *ngIf="!isEmoji" (click)="toggleEmojis()" src="assets/icons/smile.svg" alt="smile">
+  <img *ngIf="isEmoji" (click)="toggleEmojis()" src="assets/icons/keyboard.png" alt="keyboard">
   <button (click)="onSave()">Save</button>
-
 </div>
 

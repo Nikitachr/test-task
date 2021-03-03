@@ -25,12 +25,8 @@ export class DiaryComponent {
     this.value = '';
   }
 
-  showEmojis(): void {
-    this.isEmoji = true;
-  }
-
-  closeEmojis(): void {
-    this.isEmoji = false;
+  toggleEmojis(): void {
+    this.isEmoji = !this.isEmoji;
   }
 
   onAddEmoji(event: EmojiEvent): void {
