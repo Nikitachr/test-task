@@ -14,7 +14,6 @@ export class DiaryComponent {
 
   @Output() onCreateNote = new EventEmitter<string>();
 
-  public cursorPosition = 0;
   public value = '';
   public isEmoji: boolean;
 
@@ -34,15 +33,23 @@ export class DiaryComponent {
     this.isEmoji = false;
   }
 
-  addEmoji(event: EmojiEvent): void {
-    this.cursorPosition = this.textarea.nativeElement.selectionStart;
+  onAddEmoji(event: EmojiEvent): void {
+    this.addEmoji(event.emoji.native);
+    this.resetFocus();
+  }
+
+  addEmoji(emoji: string): void {
     const newValue = this.value.split('');
-    newValue.splice(this.textarea.nativeElement.selectionStart, 0, event.emoji.native);
+    newValue.splice(this.textarea.nativeElement.selectionStart, 0, emoji);
     this.value = newValue.join('');
+  }
+
+  resetFocus(): void {
+    let cursorPosition = this.textarea.nativeElement.selectionStart;
     this.textarea.nativeElement.focus();
-    this.cursorPosition += 2;
+    cursorPosition += 2;
     setTimeout(() => {
-      this.textarea.nativeElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+      this.textarea.nativeElement.setSelectionRange(cursorPosition, cursorPosition);
     }, 0 );
   }
 }
