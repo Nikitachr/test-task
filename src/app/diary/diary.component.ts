@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild } from '@angular/core';
+
 import { EmojiEvent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 
 @Component({
@@ -8,6 +9,8 @@ import { EmojiEvent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DiaryComponent {
+
+  @ViewChild('textarea', { static: false }) textarea;
 
   @Output() createNote = new EventEmitter<string>();
   public value = '';
@@ -30,7 +33,8 @@ export class DiaryComponent {
   }
 
   addEmoji(event: EmojiEvent): void {
-    this.value += event.emoji.native;
+    const newValue = this.value.split('');
+    newValue.splice(this.textarea.nativeElement.selectionStart, 0, event.emoji.native);
+    this.value = newValue.join('');
   }
-
 }

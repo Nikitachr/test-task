@@ -3,7 +3,7 @@
   <img src="assets/icons/arrow.svg" alt="arrow">
 </div>
 
-<textarea class="w__100per" [(ngModel)]="value" placeholder="Write something"></textarea>
+<textarea #textarea class="w__100per" [(ngModel)]="value" placeholder="Write something"></textarea>
 
 <emoji-mart class="d__flex d__flex--justify-center"
             *ngIf="isEmoji"
