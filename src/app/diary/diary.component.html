@@ -1,21 +1,24 @@
-<div class="w__100per d__flex d__flex--items-center d__flex--justify-between">
-  <h2>Your Diary</h2>
-  <img src="assets/icons/arrow.svg" alt="arrow">
-</div>
+<ng-container>
+  <div class="w__100per d__flex d__flex--items-center d__flex--justify-between">
+    <h2>Your Diary</h2>
+    <img src="assets/icons/arrow.svg" alt="arrow">
+  </div>
 
-<textarea #textarea class="w__100per" [(ngModel)]="value" placeholder="Write something"></textarea>
+  <textarea #textarea class="w__100per" (blur)="$event.preventDefault(); $event.stopImmediatePropagation()" [(ngModel)]="value" placeholder="Write something"></textarea>
 
-<emoji-mart class="d__flex d__flex--justify-center"
-            *ngIf="isEmoji"
-            (emojiClick)="addEmoji($event)"
-></emoji-mart>
+  <emoji-mart (click)="$event.preventDefault()" class="d__flex d__flex--justify-center"
+              *ngIf="isEmoji"
+              (emojiClick)="addEmoji($event)"
+  ></emoji-mart>
 
 
-<div class="d__flex d__flex--items-center d__flex--justify-between">
+  <div class="d__flex d__flex--items-center d__flex--justify-between">
 
-  <img *ngIf="!isEmoji" (click)="showEmojis()" src="assets/icons/smile.svg" alt="smile">
-  <img *ngIf="isEmoji" (click)="closeEmojis()" src="assets/icons/keyboard.png" alt="keyboard">
+    <img *ngIf="!isEmoji" (click)="showEmojis()" src="assets/icons/smile.svg" alt="smile">
+    <img *ngIf="isEmoji" (click)="closeEmojis()" src="assets/icons/keyboard.png" alt="keyboard">
 
-  <button (click)="onSave()">Save</button>
+    <button (click)="onSave()">Save</button>
 
-</div>
+  </div>
+</ng-container>
+

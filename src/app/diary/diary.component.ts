@@ -12,14 +12,16 @@ export class DiaryComponent {
 
   @ViewChild('textarea', { static: false }) textarea;
 
-  @Output() createNote = new EventEmitter<string>();
+  @Output() onCreateNote = new EventEmitter<string>();
+
+  public cursorPosition = 0;
   public value = '';
   public isEmoji: boolean;
 
   constructor() { }
 
   onSave(): void {
-    this.createNote.emit(this.value);
+    this.onCreateNote.emit(this.value);
     this.isEmoji = false;
     this.value = '';
   }
@@ -33,8 +35,14 @@ export class DiaryComponent {
   }
 
   addEmoji(event: EmojiEvent): void {
+    this.cursorPosition = this.textarea.nativeElement.selectionStart;
     const newValue = this.value.split('');
     newValue.splice(this.textarea.nativeElement.selectionStart, 0, event.emoji.native);
     this.value = newValue.join('');
+    this.textarea.nativeElement.focus();
+    this.cursorPosition += 2;
+    setTimeout(() => {
+      this.textarea.nativeElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+    }, 0 );
   }
 }

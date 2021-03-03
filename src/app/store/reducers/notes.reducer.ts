@@ -6,16 +6,7 @@ export interface NotesState {
 }
 
 export const initialState: NotesState = {
-  notes: [
-    {
-      date: new Date(),
-      text: 'Mock text 1'
-    },
-    {
-      date: new Date(),
-      text: 'Mock text 2'
-    }
-  ]
+  notes: []
 };
 
 export function notesReducer(state = initialState, action: NotesActions): NotesState {

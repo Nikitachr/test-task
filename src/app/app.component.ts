@@ -21,7 +21,7 @@ export class AppComponent {
   ) {
   }
 
-  onCreateNote(event: string): void {
+  createNote(event: string): void {
     if (!event?.trim()?.length) {
       return;
     }

@@ -1,5 +1,5 @@
 <div class="container d__flex d__flex--items-center d__flex--direction-column">
-  <app-diary (createNote)="onCreateNote($event)"></app-diary>
+  <app-diary (onCreateNote)="createNote($event)"></app-diary>
 
   <app-post *ngFor="let note of (notes | ngrxPush)" [note]="note"></app-post>
 </div>
